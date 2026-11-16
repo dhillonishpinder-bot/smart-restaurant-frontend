@@ -1,0 +1,437 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f7f4;
+  color: #222;
+}
+
+.navbar {
+  background: #172c24;
+  color: white;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: #e9dfcb;
+}
+
+.hero h1 {
+  font-size: 42px;
+}
+
+.heroButton, button {
+  background: #b77935;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .heroButton:hover {
+  background: #915d26;
+}
+
+.section {
+  padding: 50px 7%;
+  text-align: center;
+}
+
+.search {
+  padding: 13px;
+  width: min(100%, 400px);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 20px 0 30px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 25px;
+}
+
+.foodCard {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px #00000012;
+}
+
+.foodEmoji {
+  font-size: 65px;
+}
+
+.foodCard p {
+  color: #777;
+}
+
+.cartSection {
+  background: #fff;
+}
+
+footer {
+  background: #172c24;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar a {
+    margin: 0 8px;
+  }
+}
+
+.reservationSection {
+  background: #f0e9dc;
+}
+
+.reservationForm {
+  max-width: 500px;
+  margin: 25px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px #00000012;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.reservationForm label {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.reservationForm input,
+.reservationForm select,
+.reservationForm textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font: inherit;
+}
+
+.reservationForm button {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.reservationSuccess {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 18px;
+  background: #e2f3e5;
+  border: 1px solid #8bc49a;
+  border-radius: 8px;
+  color: #215a32;
+}
+
+
+/* AI Chatbot */
+
+.chatbotContainer {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+.chatToggle {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #172c24;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px #0003;
+}
+
+.chatWindow {
+  width: 350px;
+  height: 500px;
+  max-width: calc(100vw - 30px);
+  max-height: calc(100dvh - 40px);
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px #0003;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatHeader {
+  background: #172c24;
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatHeader small {
+  display: block;
+  margin-top: 5px;
+  color: #ddd;
+}
+
+.chatClose {
+  background: transparent;
+  padding: 5px;
+}
+
+.chatMessages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chatMessage {
+  max-width: 85%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.chatMessage.bot {
+  background: #f0e9dc;
+  align-self: flex-start;
+}
+
+.chatMessage.user {
+  background: #172c24;
+  color: white;
+  align-self: flex-end;
+}
+
+.quickQuestions {
+  display: flex;
+  gap: 7px;
+  padding: 10px;
+  overflow-x: auto;
+  border-top: 1px solid #eee;
+}
+
+.quickQuestions button {
+  background: #f0e9dc;
+  color: #172c24;
+  border-radius: 15px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.chatInputArea {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #eee;
+}
+
+.chatInputArea input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.chatInputArea button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .chatbotContainer {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .chatWindow {
+    width: calc(100vw - 30px);
+  }
+}
+
+
+/* Step 7 - Menu Filters */
+
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filterContainer .search {
+  margin: 0;
+  width: 220px;
+}
+
+.filterSelect {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+}
+
+.dietFilter,
+.priceFilter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.priceFilter input {
+  cursor: pointer;
+}
+
+.vegBadge {
+  display: inline-block;
+  background: #e3f4e5;
+  color: #28763b;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* Cart Item Styling */
+
+.cartItem {
+  max-width: 550px;
+  margin: 12px auto;
+  padding: 12px 16px;
+  background: #f8f7f4;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.removeButton {
+  background: #c0392b;
+  padding: 8px 12px;
+}
+
+.removeButton:hover {
+  background: #922b21;
+}
+
+@media (max-width: 600px) {
+  .filterContainer {
+    flex-direction: column;
+  }
+
+  .cartItem {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* Step 8 - Checkout */
+
+.checkoutSection {
+  background: #f0e9dc;
+}
+
+.checkoutForm {
+  max-width: 500px;
+  margin: 25px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px #00000012;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.checkoutForm label {
+  font-weight: bold;
+}
+
+.checkoutForm input,
+.checkoutForm select,
+.checkoutForm textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font: inherit;
+}
+
+.checkoutForm button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.orderConfirmation {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #e2f3e5;
+  border: 1px solid #8bc49a;
+  border-radius: 10px;
+  color: #215a32;
+}
+
+.navbar a.active {
+  color: #e9bb78;
+  font-weight: bold;
+  border-bottom: 2px solid #e9bb78;
+  padding-bottom: 5px;
+}
+
+main {
+  min-height: 65vh;
+}
